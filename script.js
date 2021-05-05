@@ -25,16 +25,7 @@ const special = arrayspecials(0,13)
 const alphaLower = arrayaLower(0,27)
 const alphaUpper = arrayaUpper(0,27)
 //Password Criteria
-function generatePassword(number, special, aLower, aUpper) {
-  var  Passlength = (prompt("Choose a password between 8 and 128 characters"));
-  
-  while(Passlength <= 7 || Passlength >= 128){
-     alert("Password length must be between 8-128 characters try agian");
-     var  Passlength = (prompt("Choose a password between 8 and 128 characters"));
-  }
-  
-  alert(`Your password will have ${Passlength} characters`);
-}
+
 //TODO 
 /**Add event listener to check boxes to generate button enabled
  * Add value to Password Length Slider
