@@ -1,6 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//
+var numbers = "123456789" .split(" ")
+var specials = "!%&*+-./<>?~" .split(" ")
+varaLower = "abcdefghijklmnopqrstuvwxyz" .split(" ")
+varaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split(" ")
 
+//Add event listener to generate button
+document.querySelector("#generate").addEventListener("click",  Passwordcharacters);
+document.querySelector("#include-numbers").addEventListener("click",  writePassword);
+document.querySelector("#special-characters").addEventListener("click",  writePassword);
+document.querySelector("#lower-case").addEventListener("click",  writePassword);
+document.querySelector("#upper-case").addEventListener("click",  writePassword);
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -9,24 +20,21 @@ function writePassword() {
   passwordText.value = password;
 
 }
+function show_value2(x)
+{
+ document.getElementById("slider_value2").innerHTML=x;
+}
+function add_one()
+{
+  document.f.sld6.value=parseInt(document.f.sld6.value)+1;
+  show_value2(document.f.sld6.value);
+}
+function subtract_one()
+{
+  document.f.sld6.value=parseInt(document.f.sld6.value)-1;
+  show_value2(document.f.sld6.value);
+}
 
-
-// Add event listener to generate button
-document.querySelector("#generate").addEventListener("click",  writePassword);
-// Arrays
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specials = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
-var aLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var aUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-// Variables
-const number = arraynumbers(0,9)
-const special = arrayspecials(0,13)
-const alphaLower = arrayaLower(0,27)
-const alphaUpper = arrayaUpper(0,27)
 //Password Criteria
 
 //TODO 
-/**Add event listener to check boxes to generate button enabled
- * Add value to Password Length Slider
- */
