@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var numberCheckbox = document.querySelector("input[name=include-numbers]");
+var specialCheckbox = document.querySelector("input[name=special-characters]");
+var specialIsChecked = false;
 var numbersIsChecked = false;
 var passwordLength = 128;
 //
@@ -46,20 +48,30 @@ function generatePassword() {
 
 function getNextRandom() {   // add more if statements.
   var validChoices = [];
+
   if (numbersIsChecked) {
     validChoices = validChoices.concat(numbers);
+  }
+  
+  else if (specialIsChecked) {
+  validChoices = validChoices.concat(special);
   }
   return validChoices[Math.floor(Math.random() * validChoices.length)];
 }
 
-function generateEnabled() {  // add special, upper,lower.
-  return numbersIsChecked;
-}
+function generateEnabled() { 
+    return numbersIsChecked + specialIsChecked;
+  }
 //Check box function
 
 // check box value
 numberCheckbox.addEventListener('change', function() {
   numbersIsChecked = this.checked;
+  generateBtn.disabled = !generateEnabled();
+});
+
+specialCheckbox.addEventListener('change', function() {
+  specialIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
