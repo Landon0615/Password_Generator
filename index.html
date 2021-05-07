@@ -17,19 +17,19 @@
           <h2>Generate a Password Using the Following Criteria</h2>
         </div>
         <div>
-          <input type="checkbox" id="include-numbers" name="include-numbers" value="false">
+          <input type="checkbox" id="numbers" name="include-numbers" value="false">
           <label for="include-numbers">Include Numbers</label><br>
-          <input type="checkbox" id="special-characters" name="special-characters" value="false">
+          <input type="checkbox" id="special" name="special-characters" value="false">
           <label for="special-characters">Special Characters</label><br>
-          <input type="checkbox" id="lower-case" name="lower-case" value="false">
+          <input type="checkbox" id="lower" name="lower-case" value="false">
           <label for="lower-case">Lowercase</label><br>
-          <input type="checkbox" id="upper-case" name="upper-case" value="false">
+          <input type="checkbox" id="upper" name="upper-case" value="false">
           <label for="upper-case">Uppercase</label><br>
         </div>
         <div>
           <span id="slider_value2" style="color:red;font-weight:bold;"></span><br>
           <input type="button" value="-" onClick="subtract_one()">
-          8 <input type="range" min="8" max="128" step="1" name="sld6" value="128" onchange="show_value2(this.value)"> 128
+          8 <input type="range" min="8" max="128" step="1" name="passwordLengthSlider" value="128" onchange="show_value2(this.value)"> 128
           <input type="button" value="+" onClick="add_one()">
         </div>
         <div class="card-body">
@@ -41,10 +41,10 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn" name="generate" disabled=true>Generate Password</button>
         </div>
       </div>
-    </div>4
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
