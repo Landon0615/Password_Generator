@@ -9,13 +9,12 @@ var specialIsChecked = false;
 var lowerIsChecked = false;
 var upperIsChecked = false;
 var passwordLength = 128;
-//
 var numbers = "123456789".split("");
 var special = "!%&*+-./<>?~".split("");
 var lower = "abcdefghijklmnopqrstuvwxyz".split("");
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-//Add event listener to generate button
+
 
 // Write password to the #password input
 function writePassword() {
@@ -23,7 +22,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  
 }
 //slider
 function show_value2(x) {
@@ -32,12 +30,14 @@ function show_value2(x) {
 }
 
 function add_one() {
-  document.f.passwordLengthSlider.value = parseInt(document.f.passwordLengthSlider.value) + 1;
+  document.f.passwordLengthSlider.value =
+    parseInt(document.f.passwordLengthSlider.value) + 1;
   show_value2(document.f.passwordLengthSlider.value);
 }
 
 function subtract_one() {
-  document.f.passwordLengthSlider.value = parseInt(document.f.passwordLengthSlider.value) - 1;
+  document.f.passwordLengthSlider.value =
+    parseInt(document.f.passwordLengthSlider.value) - 1;
   show_value2(document.f.passwordLengthSlider.value);
 }
 
@@ -45,76 +45,62 @@ function subtract_one() {
 function generatePassword() {
   var password = "";
   for (let index = 0; index < passwordLength; index++) {
-    password = password + getNextRandom(); 
+    password = password + getNextRandom();
   }
   return password;
 }
 
-function getNextRandom() {   // add more if statements.
+function getNextRandom() {
   var validChoices = [];
 
   if (numbersIsChecked) {
     validChoices = validChoices.concat(numbers);
   }
-  
+
   if (specialIsChecked) {
-  validChoices = validChoices.concat(special);
+    validChoices = validChoices.concat(special);
   }
 
   if (lowerIsChecked) {
     validChoices = validChoices.concat(lower);
-    }
+  }
 
   if (upperIsChecked) {
-      validChoices = validChoices.concat(upper);
-      }
+    validChoices = validChoices.concat(upper);
+  }
   return validChoices[Math.floor(Math.random() * validChoices.length)];
 }
 
-function generateEnabled() { 
-    return numbersIsChecked + specialIsChecked + lowerIsChecked + upperIsChecked;
-  }
-//Check box function
+function generateEnabled() {
+  return (
+    numbersIsChecked || specialIsChecked || lowerIsChecked || upperIsChecked
+  );
+}
 
-// check box value
-numberCheckbox.addEventListener('change', function() {
+
+numberCheckbox.addEventListener("change", function () {
   numbersIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
-specialCheckbox.addEventListener('change', function() {
+specialCheckbox.addEventListener("change", function () {
   specialIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
-lowerCheckbox.addEventListener('change', function() {
+lowerCheckbox.addEventListener("change", function () {
   lowerIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
-upperCheckbox.addEventListener('change', function() {
+upperCheckbox.addEventListener("change", function () {
   upperIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
-generateBtn.addEventListener('click', function() {
+generateBtn.addEventListener("click", function () {
   writePassword();
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TODO add event listener to enable and disable generate password for special characters, Lowercase, Uppercase.
-// make snake case camel case
-// Add Special, upper, lower if statments
-// Add generateEnabled special upper and lower.  
+//TODO 
+//Fix snake case
