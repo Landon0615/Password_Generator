@@ -2,8 +2,12 @@
 var generateBtn = document.querySelector("#generate");
 var numberCheckbox = document.querySelector("input[name=include-numbers]");
 var specialCheckbox = document.querySelector("input[name=special-characters]");
-var specialIsChecked = false;
+var lowerCheckbox = document.querySelector("input[name=lower-case]");
+var upperCheckbox = document.querySelector("input[name=upper-case]");
 var numbersIsChecked = false;
+var specialIsChecked = false;
+var lowerIsChecked = false;
+var upperIsChecked = false;
 var passwordLength = 128;
 //
 var numbers = "123456789".split("");
@@ -53,14 +57,22 @@ function getNextRandom() {   // add more if statements.
     validChoices = validChoices.concat(numbers);
   }
   
-  else if (specialIsChecked) {
+  if (specialIsChecked) {
   validChoices = validChoices.concat(special);
   }
+
+  if (lowerIsChecked) {
+    validChoices = validChoices.concat(lower);
+    }
+
+  if (upperIsChecked) {
+      validChoices = validChoices.concat(upper);
+      }
   return validChoices[Math.floor(Math.random() * validChoices.length)];
 }
 
 function generateEnabled() { 
-    return numbersIsChecked + specialIsChecked;
+    return numbersIsChecked + specialIsChecked + lowerIsChecked + upperIsChecked;
   }
 //Check box function
 
@@ -72,6 +84,16 @@ numberCheckbox.addEventListener('change', function() {
 
 specialCheckbox.addEventListener('change', function() {
   specialIsChecked = this.checked;
+  generateBtn.disabled = !generateEnabled();
+});
+
+lowerCheckbox.addEventListener('change', function() {
+  lowerIsChecked = this.checked;
+  generateBtn.disabled = !generateEnabled();
+});
+
+upperCheckbox.addEventListener('change', function() {
+  upperIsChecked = this.checked;
   generateBtn.disabled = !generateEnabled();
 });
 
