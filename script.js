@@ -24,21 +24,21 @@ function writePassword() {
   passwordText.value = password;
 }
 //slider
-function show_value2(x) {
-  document.getElementById("slider_value2").innerHTML = x;
+function showvalue2(x) {
+  document.getElementById("slidervalue2").innerHTML = x;
   passwordLength = x;
 }
 
-function add_one() {
+function addone() {
   document.f.passwordLengthSlider.value =
     parseInt(document.f.passwordLengthSlider.value) + 1;
-  show_value2(document.f.passwordLengthSlider.value);
+  showvalue2(document.f.passwordLengthSlider.value);
 }
 
-function subtract_one() {
+function subtractone() {
   document.f.passwordLengthSlider.value =
     parseInt(document.f.passwordLengthSlider.value) - 1;
-  show_value2(document.f.passwordLengthSlider.value);
+  showvalue2(document.f.passwordLengthSlider.value);
 }
 
 //Password Criteria
@@ -102,5 +102,3 @@ generateBtn.addEventListener("click", function () {
   writePassword();
 });
 
-//TODO 
-//Fix snake case
