@@ -4,4 +4,5 @@
   
   <img width="1792" alt="Screen Shot 2021-05-09 at 1 00 19 PM" src="https://user-images.githubusercontent.com/80728975/117584584-fe399100-b0ca-11eb-97d0-08e1249eafe4.png">
 
-[file:///Users/landonwaddell/Desktop/Bootcamp/Homework3/Password_Generator/index.html]()
+[https://landon0615.github.io/Password_Generator/]()
+
